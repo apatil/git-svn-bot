@@ -25,7 +25,8 @@ def up(url):
     return feedparser.parse(url).feed.updated_parsed
     
 def git2svn():
-    print 'Git repo updated, pushing to svn'
+    print 'Git repo updated, committing to svn'
+    
     print 'Pulling'
     os.system('git pull origin master')
     
