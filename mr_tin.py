@@ -5,33 +5,43 @@ import os
 __all__ = ['sync']
 
 def svn2git():
-    print 'Svn repo updated, pushing to git'
+    print 'Svn repo updated, pushing to git\n\n'
     
     print 'Fetching'
     os.system('git svn fetch')
+    print
 
     print 'Rebasing'
     os.system('git svn rebase')
+    print
     
     print 'Pulling just to be safe'
     os.system('git pull origin master')
+    print
     
     print 'Pushing'
     os.system('git push origin master')
+    print
     
     print 'Done'
+    print '\n\n\n'
 
 def up(url):
     return feedparser.parse(url).feed.updated_parsed
     
 def git2svn():
-    print 'Git repo updated, committing to svn'
+    print 'Git repo updated, committing to svn\n\n'
     
     print 'Pulling'
     os.system('git pull origin master')
+    print
     
     print 'Committing'
     os.system('git svn dcommit')
+    print
+    
+    print 'Done'
+    print '\n\n\n'
     
 
 def sync(svn_url, git_url, interval=60):
